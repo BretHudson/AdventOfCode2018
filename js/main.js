@@ -1,6 +1,6 @@
 const IS_TOUCH_DEVICE = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
 
-let daysCompleted = 0;
+let daysCompleted = 1;
 
 let logID = 0;
 let container, logs, inputField;
@@ -676,7 +676,6 @@ let readLogs = () => {
 	if (logs.innerHTML === '') {
 		printWelcome();
 		addLog('empty', '');
-		sendCommand('day 0');
 	} else
 		logID = 1 + +logs.lastChild.id.replace('log-', '');
 	

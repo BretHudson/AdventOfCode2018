@@ -670,7 +670,6 @@ let printWelcome = () => {
 };
 
 let readLogs = () => {
-	sessionStorage.removeItem('logs');
 	let logsData = sessionStorage.getItem('logs');
 	logs.innerHTML = (logsData !== null) ? JSON.parse(logsData) : '';
 	if (logs.innerHTML === '') {

@@ -1,0 +1,192 @@
+c_black = #000
+c_white = #fff
+
+c_blue = #06f
+c_green = #090
+c_yellow = #ff6
+c_orange = #f90
+c_red = #f00
+
+c_text = #ccc
+c_bg = #0f0f23
+c_gray = #666
+
+base_font = 14pt "Consolas", monospace
+
+*, *:before, *:after
+	box-sizing: border-box
+
+html
+	font: base_font
+	font-size: 14pt
+
+body
+	margin: 0
+	background-color: c_bg
+	color: c_text
+	overflow-y: none
+
+addScrollbar()
+	&::-webkit-scrollbar
+		width: 0.75em
+	&::-webkit-scrollbar-track
+		//background-color: c_red
+		border-right: 0.75em solid c_gray
+	&::-webkit-scrollbar-thumb
+		//background-color: c_green
+		border-right: 0.75em solid c_green
+
+c_link = c_yellow
+a
+	color: c_link
+	color: c_green
+	text-decoration-style: solid
+	&:hover
+		color: rgba(c_link, 0.7)
+		color: #9f9
+
+header
+	position: absolute
+	left: 0
+	top: 0
+	right: 0
+	width: 100%
+	background-color: c_text
+	color: c_bg
+	padding: 8px 16px
+	z-index: 100
+	font-weight: 700
+	div
+		@media screen and (min-width: 500px)
+			display: inline-block
+			+ div
+				&::before
+					content: '| '
+	span
+		color: c_green
+	a
+		text-decoration: none
+		&:hover
+			color: #005F00
+
+#container
+	display: inline-block
+	position: absolute
+	//top: 0
+	bottom: 27px
+	//height: 100%
+	width: 100%
+	max-height: calc(100% - 114px)
+	@media screen and (min-width: 500px)
+		max-height: calc(100% - 92px)
+	overflow-x: none
+	overflow-y: scroll
+	padding: 46px 16px 0
+	addScrollbar()
+	.wrapper
+		width: 100%
+		max-width: 45em
+	&.show-borders
+		border-left: 1pt dashed c_gray
+		//border-right: 1pt dashed c_gray
+		max-width: calc(45em + 2px)
+
+consolePaddingLeft = calc(11ch + 3px)
+
+.input
+	position: relative
+	padding-left: consolePaddingLeft
+	.right
+		width: auto
+		overflow: hidden
+		textarea
+			display: block
+			background-color: c_bg
+			color: c_text
+			//color: c_gray
+			font: base_font
+			width: 100%
+			outline: 0
+			border: 0
+			padding: 0
+			resize: none
+			margin-bottom: 0
+	&::before
+		position: absolute
+		left: 0
+		top: 0
+		display: block
+		white-space: pre
+		content: '        >> '
+		float: left
+		color: c_gray
+		.disabled&
+			content: ''
+
+createBackground(name, color, tColor = #fff)
+	.b_{name}
+		background-color: color
+		color: tColor
+
+createColor(name, color)
+	.c_{name}
+		color: color
+
+.log
+	position: relative
+	margin: 0
+	line-height: 1.2em
+	word-break: break-all
+	word-break: break-word
+	padding-left: consolePaddingLeft
+	createBackground('blue', c_blue)
+	createBackground('green', c_green)
+	createBackground('yellow', c_yellow, #000)
+	//createBackground('orange', c_orange, #000)
+	createBackground('red', c_red)
+	createBackground('gray', c_gray)
+	createBackground('white', white)
+	createColor('blue', c_blue)
+	createColor('green', c_green)
+	createColor('yellow', c_yellow)
+	createColor('orange', c_orange)
+	createColor('red', c_red)
+	createColor('gray', c_gray)
+	createColor('white', white)
+	
+	.input&
+		&, span
+			color: c_gray !important
+	
+	.condensed .empty&
+		display: none
+	
+	.output-ascii&, .output-ascii-more&
+		span
+			white-space: pre
+	
+	&::before
+		position: absolute
+		left: 0
+		top: 0
+		white-space: pre
+		display: inline-block
+		color: c_gray
+		height: 100%
+		.empty&
+			content: ''
+		.input&
+			content: '        >> '
+		.output&
+			content: '[' attr(data-time) '] '
+		.output-more&
+			content: '           '
+	span
+		&.space
+			white-space: pre
+			&::after
+				content: ' '
+				background-color: c_bg
+				display: inline-block
+			.output-strict&, .input&
+				display: none

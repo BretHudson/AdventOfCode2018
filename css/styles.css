@@ -124,6 +124,10 @@ header a:hover {
   word-break: break-word;
   padding-left: calc(11ch + 3px);
 }
+.log .b_purple {
+  background-color: #909;
+  color: #fff;
+}
 .log .b_blue {
   background-color: #06f;
   color: #fff;
@@ -144,9 +148,16 @@ header a:hover {
   background-color: #666;
   color: #fff;
 }
+.log .b_brown {
+  background-color: #532;
+  color: #fff;
+}
 .log .b_white {
   background-color: #fff;
   color: #fff;
+}
+.log .c_purple {
+  color: #909;
 }
 .log .c_blue {
   color: #06f;
@@ -165,6 +176,9 @@ header a:hover {
 }
 .log .c_gray {
   color: #666;
+}
+.log .c_brown {
+  color: #532;
 }
 .log .c_white {
   color: #fff;

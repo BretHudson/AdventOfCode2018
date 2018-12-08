@@ -1,11 +1,13 @@
 c_black = #000
 c_white = #fff
 
+c_purple = #909
 c_blue = #06f
 c_green = #090
 c_yellow = #ff6
 c_orange = #f90
 c_red = #f00
+c_brown = #532
 
 c_text = #ccc
 c_bg = #0f0f23
@@ -139,19 +141,23 @@ createColor(name, color)
 	word-break: break-all
 	word-break: break-word
 	padding-left: consolePaddingLeft
+	createBackground('purple', c_purple)
 	createBackground('blue', c_blue)
 	createBackground('green', c_green)
 	createBackground('yellow', c_yellow, #000)
 	//createBackground('orange', c_orange, #000)
 	createBackground('red', c_red)
 	createBackground('gray', c_gray)
+	createBackground('brown', c_brown)
 	createBackground('white', white)
+	createColor('purple', c_purple)
 	createColor('blue', c_blue)
 	createColor('green', c_green)
 	createColor('yellow', c_yellow)
 	createColor('orange', c_orange)
 	createColor('red', c_red)
 	createColor('gray', c_gray)
+	createColor('brown', c_brown)
 	createColor('white', white)
 	
 	.input&

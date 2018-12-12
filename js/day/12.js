@@ -74,7 +74,8 @@ onmessage = onmessagefunc((input, callback) => {
 	};
 	
 	let sums = [ { val: getPlantNumberSum(head), diff: 0 } ];
-	for (let i = 1; i <= 2000; ++i) {
+	let numberOfGenerations = 50000000000
+	for (let i = 1; i <= numberOfGenerations; ++i) {
 		let leftPlant = head;
 		let rightPlant = tail;
 		for (let x = 0; x < 4; ++x) {
@@ -123,7 +124,7 @@ onmessage = onmessagefunc((input, callback) => {
 	let lastIter = sums.length - 1;
 	
 	result[0] = sums[20].val;
-	result[1] = sums[lastIter].val + (50000000000 - lastIter) * sums[lastIter].diff;
+	result[1] = sums[lastIter].val + (numberOfGenerations - lastIter) * sums[lastIter].diff;
 	
 	callback(result);
 });

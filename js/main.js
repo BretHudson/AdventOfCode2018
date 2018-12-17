@@ -1,6 +1,6 @@
 const IS_TOUCH_DEVICE = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
 
-let daysCompleted = 16;
+let daysCompleted = 17;
 
 let logID = 0;
 let container, logs, inputField;

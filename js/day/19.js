@@ -39,7 +39,7 @@ onmessage = onmessagefunc((input, callback) => {
 			registers[ip] += 1;
 			
 			if (registers[ip] === 1) {
-				let number = registers[2];
+				let number = registers.reduce((acc, val) => Math.max(acc, val), 0);
 				registers[0] = 0;
 				for (let i = 1; i <= number; ++i) {
 					if (number % i === 0)
